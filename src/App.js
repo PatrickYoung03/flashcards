@@ -10,7 +10,7 @@ import CardList from './components/custom/CardList';
 const App = () => {
   return (
     <Provider store={createStore(reducers)}>
-      <SafeAreaView>
+      <SafeAreaView style={{flex: 1}}>
         <Header headerText="Flashcards" />
         <CardList />
       </SafeAreaView>

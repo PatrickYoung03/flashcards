@@ -1,13 +1,25 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, {Component} from 'react';
+import {FlatList} from 'react-native';
 import {connect} from 'react-redux';
+import ListItem from './ListItem';
 
-const CardList = () => {
-  return <View></View>;
-};
+class CardList extends Component {
+  renderItem(card) {
+    return <ListItem card={card} />;
+  }
+
+  render() {
+    return (
+      <FlatList
+        keyExtractor={(card) => card.id.toString()}
+        data={this.props.cards}
+        renderItem={this.renderItem}
+      />
+    );
+  }
+}
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {cards: state.cards};
 };
 
